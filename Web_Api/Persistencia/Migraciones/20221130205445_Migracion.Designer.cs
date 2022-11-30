@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Juegos.Persistencia.Migraciones
 {
     [DbContext(typeof(JuegosDbContext))]
-    [Migration("20221130151020_Cambios")]
-    partial class Cambios
+    [Migration("20221130205445_Migracion")]
+    partial class Migracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

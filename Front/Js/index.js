@@ -1,4 +1,4 @@
-let baseurl = "https://localhost:7194"
+let baseUrl = "https://localhost:7194"
 
 document.addEventListener("DOMContentLoaded", () => {
     actualizarJuegos()
@@ -8,10 +8,10 @@ function actualizarJuegos() {
     axios.get(baseUrl + '/juegos')
         .then(function (response) {
             let juegos = document.getElementById("juegos")
-            juegosData = response.data
+            let juegosData = response.data
             var juegosHtml = ''
             for (let i = 0; i < juegosData.length; i++) {
-                juegosHtml += `${juegosData[i].nombre} ${juegosData[i].apellido} - ${juegosData[i].tarjeta} <br/> `
+                juegosHtml += `${juegosData[i].id} ${juegosData[i].nombre} ${juegosData[i].sinopsis} ${juegosData[i].calificacion} <br/> `
             }
             juegos.innerHTML = juegosHtml
         })
@@ -36,7 +36,7 @@ btn_GuardarJuego.addEventListener('click', (e) => {
     }
     if (juego.nombre !== '' && juego.nombre !== null && juego.sinopsis !== ''
         && juego.sinopsis !== null && juego.calificacion !== 0 && juego.calificacion !== null) {
-        axios.post(baseurl + "/juegos", juego)
+        axios.post(baseUrl + "/juegos", juego)
             .then(function (response) {
                 console.log(response)
             })

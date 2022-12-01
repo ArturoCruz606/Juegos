@@ -11,7 +11,7 @@ function actualizarJuegos() {
             let juegosData = response.data
             var juegosHtml = ''
             for (let i = 0; i < juegosData.length; i++) {
-                juegosHtml += `${juegosData[i].id} ${juegosData[i].nombre} ${juegosData[i].sinopsis} ${juegosData[i].calificacion} <br/> `
+                juegosHtml += `${juegosData[i].nombre} ${juegosData[i].sinopsis} ${juegosData[i].calificacion} <br/> `
             }
             juegos.innerHTML = juegosHtml
         })

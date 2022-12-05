@@ -1,4 +1,3 @@
-// import axios from "axios"
 let baseUrl = "https://localhost:7194"
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,9 +9,11 @@ function actualizarJuegos() {
         .then(function (response) {
             let juegos = document.getElementById("juegos")
             let juegosData = response.data
-            var juegosHtml = ''
+            console.log(juegosData)
+            let juegosHtml = ''
             for (let i = 0; i < juegosData.length; i++) {
-                juegosHtml += `${juegosData[i].nombre} ${juegosData[i].sinopsis} ${juegosData[i].calificacion} <br/> `
+                juegosHtml += `<tr><td>${juegosData[i].id}</td> <td>${juegosData[i].nombre}</td> <td>${juegosData[i].sinopsis}</td> <td>${juegosData[i].calificacion}</td></tr>\n`
+                // juegosHtml += `${juegosData[i].id} - ${juegosData[i].nombre} - ${juegosData[i].sinopsis} - ${juegosData[i].calificacion} <br/> `
             }
             juegos.innerHTML = juegosHtml
         })
@@ -21,25 +22,21 @@ function actualizarJuegos() {
         })
 }
 
-
-
-
 let btn_GuardarJuego = document.getElementById("btn_Guardar")
 console.log(btn_GuardarJuego)
 btn_GuardarJuego.addEventListener('click', () => {
-    console.log('hgh')
     let nombreJuego = document.getElementById("nombre_Juego")
     let sinopsisJuego = document.getElementById("sinopsis_Juego")
     let calificacionJuego = document.getElementById("calificacion_Juego")
-    console.log(nombreJuego)
-    console.log(sinopsisJuego)
-    console.log(calificacionJuego)
+    if (calificacionJuego.value <= 0 || calificacionJuego.value > 10) {
+        alert("La calificacion no puede ser menor a 1 ni mayor a 10")
+        return
+    }
     let juego = {
         nombre: nombreJuego.value,
         sinopsis: sinopsisJuego.value,
         calificacion: calificacionJuego.value,
     }
-    console.log(juego)
     if (juego.nombre !== '' && juego.nombre !== null && juego.sinopsis !== ''
         && juego.sinopsis !== null && juego.calificacion !== 0 && juego.calificacion !== null) {
         axios.post(baseUrl + "/juegos", juego)
@@ -49,10 +46,12 @@ btn_GuardarJuego.addEventListener('click', () => {
             .catch(function (error) {
                 console.log(error)
             })
-        actualizarJuegos()
         nombreJuego.value = ''
         sinopsisJuego.value = ''
         calificacionJuego.value = ''
+        console.log('asd')
+        actualizarJuegos()
+        console.log('qwe')
     } else {
         alert('Verificar campos')
     }

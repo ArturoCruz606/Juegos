@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ET12Compu\\Desktop\\Juegos\\Web_Api\\Juegos.csproj": {}
+    "C:\\Users\\ar7ur\\Documents\\GitHub\\Juegos\\Web_Api\\Juegos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ET12Compu\\Desktop\\Juegos\\Web_Api\\Juegos.csproj": {
+    "C:\\Users\\ar7ur\\Documents\\GitHub\\Juegos\\Web_Api\\Juegos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ET12Compu\\Desktop\\Juegos\\Web_Api\\Juegos.csproj",
+        "projectUniqueName": "C:\\Users\\ar7ur\\Documents\\GitHub\\Juegos\\Web_Api\\Juegos.csproj",
         "projectName": "Juegos",
-        "projectPath": "C:\\Users\\ET12Compu\\Desktop\\Juegos\\Web_Api\\Juegos.csproj",
-        "packagesPath": "C:\\Users\\ET12Compu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ET12Compu\\Desktop\\Juegos\\Web_Api\\obj\\",
+        "projectPath": "C:\\Users\\ar7ur\\Documents\\GitHub\\Juegos\\Web_Api\\Juegos.csproj",
+        "packagesPath": "C:\\Users\\ar7ur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ar7ur\\Documents\\GitHub\\Juegos\\Web_Api\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ET12Compu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ar7ur\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -81,6 +74,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[6.0.11, 6.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.11, 6.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"

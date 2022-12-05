@@ -23,7 +23,7 @@ function actualizarJuegos() {
 }
 
 let btn_GuardarJuego = document.getElementById("btn_Guardar")
-console.log(btn_GuardarJuego)
+
 btn_GuardarJuego.addEventListener('click', () => {
     let nombreJuego = document.getElementById("nombre_Juego")
     let sinopsisJuego = document.getElementById("sinopsis_Juego")

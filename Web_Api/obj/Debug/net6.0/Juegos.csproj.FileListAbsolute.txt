@@ -152,3 +152,8 @@ C:\Users\L21-PC66\Documents\GitHub\Juegos\Web_Api\obj\Debug\net6.0\refint\Juegos
 C:\Users\L21-PC66\Documents\GitHub\Juegos\Web_Api\obj\Debug\net6.0\Juegos.pdb
 C:\Users\L21-PC66\Documents\GitHub\Juegos\Web_Api\obj\Debug\net6.0\Juegos.genruntimeconfig.cache
 C:\Users\L21-PC66\Documents\GitHub\Juegos\Web_Api\obj\Debug\net6.0\ref\Juegos.dll
+C:\Users\ar7ur\Documents\GitHub\Juegos\Web_Api\obj\Debug\net6.0\staticwebassets\msbuild.Juegos.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ar7ur\Documents\GitHub\Juegos\Web_Api\obj\Debug\net6.0\staticwebassets\msbuild.build.Juegos.props
+C:\Users\ar7ur\Documents\GitHub\Juegos\Web_Api\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Juegos.props
+C:\Users\ar7ur\Documents\GitHub\Juegos\Web_Api\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Juegos.props
+C:\Users\ar7ur\Documents\GitHub\Juegos\Web_Api\obj\Debug\net6.0\staticwebassets.pack.json

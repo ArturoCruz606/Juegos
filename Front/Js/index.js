@@ -2,7 +2,41 @@ let baseUrl = "https://localhost:7194"
 
 document.addEventListener("DOMContentLoaded", () => {
     actualizarJuegos()
+    console.log(traerCalificacionesJuegos())
+    console.log(traerNombresJuegos())
 })
+
+function traerCalificacionesJuegos() {
+    let juegosDataCalificacion = []
+    axios.get(baseUrl + '/juegos')
+    .then(function (response) {
+        let juegosData = response.data
+            for (let i = 0; i < juegosData.length; i++)
+            {
+                juegosDataCalificacion.push(juegosData[i].calificacion)
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        return juegosDataCalificacion
+}
+
+function traerNombresJuegos() {
+    let juegosDataNombre = []
+    axios.get(baseUrl + '/juegos')
+        .then(function (response) {
+            let juegosData = response.data
+            for (let i = 0; i < juegosData.length; i++)
+            {
+                juegosDataNombre.push(juegosData[i].nombre)
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+        return juegosDataNombre
+}
 
 function actualizarJuegos() {
     axios.get(baseUrl + '/juegos')
@@ -13,7 +47,6 @@ function actualizarJuegos() {
             let juegosHtml = ''
             for (let i = 0; i < juegosData.length; i++) {
                 juegosHtml += `<tr><td>${juegosData[i].id}</td> <td>${juegosData[i].nombre}</td> <td>${juegosData[i].sinopsis}</td> <td>${juegosData[i].calificacion}</td></tr>\n`
-                // juegosHtml += `${juegosData[i].id} - ${juegosData[i].nombre} - ${juegosData[i].sinopsis} - ${juegosData[i].calificacion} <br/> `
             }
             juegos.innerHTML = juegosHtml
         })
@@ -42,17 +75,37 @@ btn_GuardarJuego.addEventListener('click', () => {
         axios.post(baseUrl + "/juegos", juego)
             .then(function (response) {
                 console.log(response)
+                actualizarJuegos()
             })
             .catch(function (error) {
-                console.log(error)
+                alert(error)
             })
         nombreJuego.value = ''
         sinopsisJuego.value = ''
         calificacionJuego.value = ''
-        console.log('asd')
-        actualizarJuegos()
-        console.log('qwe')
     } else {
         alert('Verificar campos')
     }
+})
+
+const calificacionesJuegos = document.getElementById("graficoCalificaciones")
+
+let labels = traerNombresJuegos()
+
+let calificaciones = traerCalificacionesJuegos()
+
+let data = {
+    labels: labels,
+    datasets: [
+        {
+            label: 'Juegos',
+            data: calificaciones
+        }
+    ]
+};
+
+
+var grafico = new Chart(calificacionesJuegos,{
+    type: 'polarArea',
+    data: data,
 })

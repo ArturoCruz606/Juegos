@@ -2,41 +2,8 @@ let baseUrl = "https://localhost:7194"
 
 document.addEventListener("DOMContentLoaded", () => {
     actualizarJuegos()
-    console.log(traerCalificacionesJuegos())
-    console.log(traerNombresJuegos())
+    actualizarGrafico()
 })
-
-function traerCalificacionesJuegos() {
-    let juegosDataCalificacion = []
-    axios.get(baseUrl + '/juegos')
-    .then(function (response) {
-        let juegosData = response.data
-            for (let i = 0; i < juegosData.length; i++)
-            {
-                juegosDataCalificacion.push(juegosData[i].calificacion)
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-        return juegosDataCalificacion
-}
-
-function traerNombresJuegos() {
-    let juegosDataNombre = []
-    axios.get(baseUrl + '/juegos')
-        .then(function (response) {
-            let juegosData = response.data
-            for (let i = 0; i < juegosData.length; i++)
-            {
-                juegosDataNombre.push(juegosData[i].nombre)
-            }
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
-        return juegosDataNombre
-}
 
 function actualizarJuegos() {
     axios.get(baseUrl + '/juegos')
@@ -46,9 +13,10 @@ function actualizarJuegos() {
             console.log(juegosData)
             let juegosHtml = ''
             for (let i = 0; i < juegosData.length; i++) {
-                juegosHtml += `<tr><td>${juegosData[i].id}</td> <td>${juegosData[i].nombre}</td> <td>${juegosData[i].sinopsis}</td> <td>${juegosData[i].calificacion}</td></tr>\n`
+                juegosHtml += `<tr><td>${juegosData[i].nombre}</td> <td>${juegosData[i].sinopsis}</td> <td>${juegosData[i].calificacion}</td></tr>\n`
             }
             juegos.innerHTML = juegosHtml
+            actualizarGrafico()
         })
         .catch(function (error) {
             console.log(error);
@@ -90,22 +58,34 @@ btn_GuardarJuego.addEventListener('click', () => {
 
 const calificacionesJuegos = document.getElementById("graficoCalificaciones")
 
-let labels = traerNombresJuegos()
-
-let calificaciones = traerCalificacionesJuegos()
-
 let data = {
-    labels: labels,
+    labels: [],
     datasets: [
         {
-            label: 'Juegos',
-            data: calificaciones
+            label: 'Calificación',
+            data: []
         }
-    ]
+    ],
+    backgroundColor: []
 };
 
-
-var grafico = new Chart(calificacionesJuegos,{
+var grafico = new Chart(calificacionesJuegos, {
     type: 'polarArea',
     data: data,
 })
+
+function actualizarGrafico() {
+    calificacionesJuegos.innerHTML = ""
+    axios.get(baseUrl + '/juegos')
+        .then(function (response) {
+            let calificaciones = response.data;
+            console.log(calificaciones)
+            grafico.data.labels = calificaciones.map(x => x.nombre)
+            grafico.data.datasets[0].data = calificaciones.map(x => x.calificacion)
+            grafico.data.datasets[0].backgroundColor = calificaciones.map(x => x.color)
+            grafico.update()
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+}

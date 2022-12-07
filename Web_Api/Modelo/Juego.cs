@@ -20,5 +20,6 @@ public class Juego
     [Range(1, 10, ErrorMessage = "La Calificacion ser una entre {1} y {2}")]
     public int Calificacion { get; set; }
 
+    public string Color { get; set; }
     public Juego() { }
 }

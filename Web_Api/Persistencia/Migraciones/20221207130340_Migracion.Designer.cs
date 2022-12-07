@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Juegos.Persistencia.Migraciones
 {
     [DbContext(typeof(JuegosDbContext))]
-    [Migration("20221130205445_Migracion")]
+    [Migration("20221207130340_Migracion")]
     partial class Migracion
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,10 @@ namespace Juegos.Persistencia.Migraciones
 
                     b.Property<int>("Calificacion")
                         .HasColumnType("int");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Nombre")
                         .IsRequired()

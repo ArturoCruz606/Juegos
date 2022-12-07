@@ -27,6 +27,10 @@ namespace Juegos.Persistencia.Migraciones
                     b.Property<int>("Calificacion")
                         .HasColumnType("int");
 
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasMaxLength(40)

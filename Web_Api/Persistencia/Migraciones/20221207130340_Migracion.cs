@@ -22,7 +22,9 @@ namespace Juegos.Persistencia.Migraciones
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Sinopsis = table.Column<string>(type: "varchar(300)", maxLength: 300, nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Calificacion = table.Column<int>(type: "int", nullable: false)
+                    Calificacion = table.Column<int>(type: "int", nullable: false),
+                    Color = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
                 {

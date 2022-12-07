@@ -47,6 +47,11 @@ app.UseCors("appPolicy");
 app.MapGet("/juegos", async (JuegosDbContext db) =>
 {
     var juegos = await db.Juegos.ToListAsync();
+    var random = new Random();
+    foreach (var juego in juegos)
+    {
+        juego.Color = String.Format("#{0:X6}", random.Next(0x1000000)); // = "#A197B9"
+    }
     return Results.Ok(juegos);
 });
 
@@ -61,7 +66,8 @@ app.MapPost("/juegos", async (JuegosDbContext db, JuegoViewModel juego) =>
     {
         Nombre = juego.Nombre,
         Sinopsis = juego.Sinopsis,
-        Calificacion = juego.Calificacion
+        Calificacion = juego.Calificacion,
+        Color = ""
     };
     await db.Juegos.AddAsync(nuevoJuego);
     await db.SaveChangesAsync();

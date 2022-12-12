@@ -12,32 +12,43 @@
 
 <body>
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-start">
             <div class="col-lg-3 col-md-6">
-                <label for="nombre_Juego">Nombre:</label>
-                <input class="form-control" id="nombre_Juego" type="text">
-                <br>
-                <label for="sinopsis_Juego">Sinopsis:</label>
-                <input class="form-control" id="sinopsis_Juego" type="text">
-                <br>
-                <label for="calificacion_Juego">Calificacion:</label>
-                <input class="form-control" id="calificacion_Juego" type="number">
-                <br>
-                <button class="btn btn-primary" id="btn_Guardar">Guardar</button>
+                <div class="card border-secondary">
+                    <div class="card-body d-grid gap-2">
+                        <h3>Alta</h3>
+                        <label for="nombre_Juego">Nombre:</label>
+                        <input class="form-control" id="nombre_Juego" type="text">
+                        <br>
+                        <label for="sinopsis_Juego">Sinopsis:</label>
+                        <input class="form-control" id="sinopsis_Juego" type="text">
+                        <br>
+                        <label for="calificacion_Juego">Calificacion:</label>
+                        <input class="form-control" id="calificacion_Juego" type="number">
+                        <br>
+                        <button class="btn btn-primary" id="btn_Guardar">Guardar</button>
+                    </div>
+                </div>
             </div>
             <div class="col-4">
-                <!-- <h3>Juegos</h3> -->
-                <table class="table table-bordered border-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Sinopsis</th>
-                            <th scope="col">Calificacion</th>
-                        </tr>
-                    </thead>
-                    <tbody id="juegos">
-                    </tbody>
-                </table>
+                <div class="text-center">
+                    <div class="card border-secondary">
+                        <div class="card-body">
+                            <h3>Juegos</h3>
+                            <table class="table table-bordered border-dark">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Sinopsis</th>
+                                        <th scope="col">Calificacion</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="juegos">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-5">
                 <div class="card border-secondary">

@@ -72,6 +72,18 @@ let data = {
 var grafico = new Chart(calificacionesJuegos, {
     type: 'polarArea',
     data: data,
+    options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+          },
+          title: {
+            display: true,
+            text: 'Grafico de Calificaciones'
+          }
+        }
+      },
 })
 
 function actualizarGrafico() {
